@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LocalisationData" load_steps=5 format=3 uid="uid://tr00000000001"]
+
+[ext_resource type="Texture2D" uid="uid://baxywohol2cvn" path="res://Assets/Sprites/UI/MainMenu/Drapeau_US_Hover.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://jp75wbp8tr4g" path="res://Assets/Sprites/UI/MainMenu/Drapeau_US_Unpressed.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://v4dky25poer3" path="res://Assets/Sprites/UI/MainMenu/Drapeau_US_Pressed.png" id="3"]
+[ext_resource type="Script" path="res://Scripts/Localisation/Localisation_Data.gd" id="4"]
+
+[resource]
+script = ExtResource("4")
+localisation = 8
+full_name = "Turkce"
+short_name = "tr"
+drapeau_normal = ExtResource("2")
+drapeau_hover = ExtResource("1")
+drapeau_pressed = ExtResource("3")
