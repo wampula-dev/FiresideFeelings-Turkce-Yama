@@ -1,0 +1,15 @@
+# Executables and downloaded tools
+*.exe
+*.dll
+tools/
+*.zip
+
+# Backup files
+*.bak
+*.orig_bak
+
+# System and logs
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.log

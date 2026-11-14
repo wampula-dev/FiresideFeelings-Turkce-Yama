@@ -144,11 +144,25 @@ $patchFiles = @()
 $patchFiles += "$patchFilesDir\project.binary=res://project.binary"
 $patchFiles += "$patchFilesDir\Project_Data.gdc=res://Scripts/AutoLoad/Project_Data.gdc"
 $patchFiles += "$patchFilesDir\Dialogue_Manager.gdc=res://Scripts/Dialogue/Dialogue_Manager.gdc"
+$patchFiles += "$patchFilesDir\Database_Manager.gdc=res://Scripts/DataBase/Database_Manager.gdc"
 $patchFiles += "$patchFilesDir\Tr_Localisation_Data.res=res://Assets/ScriptableDatas/Localisation_Data/Tr_Localisation_Data.res"
 $patchFiles += "$patchFilesDir\Tr_Localisation_Data.tres.remap=res://Assets/ScriptableDatas/Localisation_Data/Tr_Localisation_Data.tres.remap"
 $patchFiles += "$patchFilesDir\Tr_Localisation_Data.tres=res://Assets/ScriptableDatas/Localisation_Data/Tr_Localisation_Data.tres"
 
-$trFiles = Get-ChildItem (Join-Path $patchFilesDir "translations") -Filter "*.tr.translation"
+$flagsDir = Join-Path $patchFilesDir "flags"
+if (Test-Path -LiteralPath $flagsDir) {
+    foreach ($f in (Get-ChildItem -LiteralPath $flagsDir -Filter "Drapeau_TR_*.png")) {
+        $patchFiles += "$($f.FullName)=res://Assets/Sprites/UI/MainMenu/$($f.Name)"
+    }
+    foreach ($f in (Get-ChildItem -LiteralPath $flagsDir -Filter "Drapeau_TR_*.png.import")) {
+        $patchFiles += "$($f.FullName)=res://Assets/Sprites/UI/MainMenu/$($f.Name)"
+    }
+    foreach ($f in (Get-ChildItem -LiteralPath $flagsDir -Filter "*.ctex")) {
+        $patchFiles += "$($f.FullName)=res://.godot/imported/$($f.Name)"
+    }
+}
+
+$trFiles = Get-ChildItem -LiteralPath (Join-Path $patchFilesDir "translations") -Filter "*.tr.translation"
 foreach ($f in $trFiles) {
     $patchFiles += "$($f.FullName)=res://Assets/Localisation/$($f.Name)"
 }
